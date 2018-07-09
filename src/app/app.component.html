@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center py-5">
+      <h1>jQuery components to Angular 6</h1>
+    </div>
+  </div>
+  <section>
+    <h2>Slick carousel</h2>
+    <slick-carousel class="carousel" [config]="configuration">
+      <div slick-carousel-item *ngFor="let slide of slides">
+        <img src="{{ slide.img }}" alt="" width="100%">
+      </div>
+    </slick-carousel>
+  </section>
+  <section>
+    <h2>Bootstrap select</h2>
+    <select class="selectpicker">
+      <option>Mustard</option>
+      <option>Ketchup</option>
+      <option>Barbecue</option>
+    </select>
+  </section>
+</div>
+
+
