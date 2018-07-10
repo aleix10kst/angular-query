@@ -14,12 +14,12 @@
   </section>
   <section>
     <h2>Bootstrap select</h2>
-    <select class="selectpicker">
-      <option>Mustard</option>
-      <option>Ketchup</option>
-      <option>Barbecue</option>
-    </select>
+    <form [formGroup]="bootstrapSelectGroup">
+      <bootstrap-select formControlName="bootstrapSelect">
+        <option>Mustard</option>
+        <option>Ketchup</option>
+        <option>Barbecue</option>
+      </bootstrap-select>
+    </form>
   </section>
 </div>
-
-
