@@ -15,29 +15,33 @@ declare const jQuery: any;
     }
   ]
 })
-export class BootstrapSelectComponent implements ControlValueAccessor, OnInit, AfterViewInit {
+export class BootstrapSelectComponent implements AfterViewInit, ControlValueAccessor {
 
   @ViewChild('selectpicker') elementRef;
   $instance;
   value;
+  initialized = false;
   onChange = (_: any) => {};
 
   constructor(
     private zone: NgZone
   ) { }
 
-  ngOnInit() {
-    this.initSelect();
-  }
-
   ngAfterViewInit() {
-    // this.initSelect();
+    this.initSelect();
   }
 
   initSelect() {
     this.zone.runOutsideAngular(() => {
       this.$instance = jQuery(this.elementRef.nativeElement);
       this.$instance.selectpicker();
+
+      if (!this.initialized) {
+        this.zone.run(() => {
+          this.initialized = true;
+        });
+        this.$instance.selectpicker('val', this.value);
+      }
 
       this.$instance.on('changed.bs.select', (event) => {
         this.zone.run(() => {

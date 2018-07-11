@@ -12,14 +12,21 @@
       </div>
     </slick-carousel>
   </section>
+  <hr>
   <section>
-    <h2>Bootstrap select</h2>
+    <h2>Bootstrap select as a component</h2>
     <form [formGroup]="bootstrapSelectGroup">
       <bootstrap-select formControlName="bootstrapSelect">
-        <option>Mustard</option>
-        <option>Ketchup</option>
-        <option>Barbecue</option>
+        <option *ngFor="let option of options">{{ option }}</option>
       </bootstrap-select>
     </form>
   </section>
+  <hr>
+  <section>
+    <h2>Bootstrap select as a directive</h2>
+    <select class="selectpicker" bootstrapSelect [(ngModel)]="bootstrapSelectDirectiveModel">
+      <option *ngFor="let option of options">{{ option }}</option>
+    </select>
+  </section>
+  <hr>
 </div>

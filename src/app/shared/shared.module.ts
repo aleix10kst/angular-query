@@ -4,12 +4,14 @@ import { SlickCarouselComponent } from './components/slick-carousel/slick-carous
 import {SlickCarouselItemDirective} from './directives/slick-carousel/slick-carousel-item.directive';
 import { BootstrapSelectComponent } from './components/bootstrap-select/bootstrap-select.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BootstrapSelectDirective } from './directives/bootstrap-select/bootstrap-select.directive';
 
 @NgModule({
   declarations: [
     SlickCarouselComponent,
     SlickCarouselItemDirective,
-    BootstrapSelectComponent
+    BootstrapSelectComponent,
+    BootstrapSelectDirective
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     SlickCarouselComponent,
     SlickCarouselItemDirective,
-    BootstrapSelectComponent
+    BootstrapSelectComponent,
+    BootstrapSelectDirective
   ]
 })
 export class SharedModule { }

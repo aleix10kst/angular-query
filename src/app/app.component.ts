@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
@@ -6,10 +6,17 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges {
   title = 'app';
   normalSelect;
   bootstrapSelectGroup: FormGroup;
+  bootstrapSelectDirectiveModel = 'Ketchup';
+
+  options = [
+    'Mustard',
+    'Ketchup',
+    'Barbecue'
+  ];
 
   configuration = {
     infinite: true,
@@ -41,4 +48,10 @@ export class AppComponent implements OnInit {
   removeSlide() {
     this.slides.length = this.slides.length - 1;
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
+
 }
