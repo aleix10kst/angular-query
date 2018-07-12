@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {SharedModule} from './shared/shared.module';
+import { JqueryMaskDirective } from './shared/directives/jquery-mask/jquery-mask.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

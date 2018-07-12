@@ -17,6 +17,7 @@
     <h2>Bootstrap select as a component</h2>
     <form [formGroup]="bootstrapSelectGroup">
       <bootstrap-select formControlName="bootstrapSelect" [options]="options"></bootstrap-select>
+      <pre class="my-3">Selected option: <b>{{ bootstrapSelectGroup.get('bootstrapSelect').value }}</b></pre>
     </form>
   </section>
   <hr>
@@ -34,7 +35,11 @@
         Remove option
       </button>
     </div>
-
   </section>
   <hr>
+  <section>
+    <h2>Jquery Mask</h2>
+    <input type="text" class="form-control my-1" jquery-mask [mask]="{value: '00/00/0000'}">
+    <input type="text" class="form-control my-1" jquery-mask [mask]="{value: '(+00) 000 000 000'}">
+  </section>
 </div>

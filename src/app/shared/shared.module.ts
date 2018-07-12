@@ -6,6 +6,7 @@ import { BootstrapSelectComponent } from './components/bootstrap-select/bootstra
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BootstrapSelectDirective } from './directives/bootstrap-select/bootstrap-select.directive';
 import { BootstrapSelectItemDirective } from './directives/bootstrap-select/bootstrap-select-item.directive';
+import {JqueryMaskDirective} from './directives/jquery-mask/jquery-mask.directive';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BootstrapSelectItemDirective } from './directives/bootstrap-select/boot
     BootstrapSelectComponent,
     BootstrapSelectDirective,
     BootstrapSelectItemDirective,
+    JqueryMaskDirective
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { BootstrapSelectItemDirective } from './directives/bootstrap-select/boot
     SlickCarouselItemDirective,
     BootstrapSelectComponent,
     BootstrapSelectDirective,
-    BootstrapSelectItemDirective
+    BootstrapSelectItemDirective,
+    JqueryMaskDirective
   ]
 })
 export class SharedModule { }

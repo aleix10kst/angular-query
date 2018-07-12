@@ -32,7 +32,8 @@
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "./node_modules/bootstrap-select/dist/js/bootstrap-select.min.js",
-              "./node_modules/slick-carousel/slick/slick.min.js"
+              "./node_modules/slick-carousel/slick/slick.min.js",
+              "./node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"
             ]
           },
           "configurations": {
