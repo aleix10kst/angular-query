@@ -13,20 +13,17 @@ declare const jQuery: any;
     }
   ]
 })
-export class BootstrapSelectDirective implements AfterViewInit, ControlValueAccessor {
+export class BootstrapSelectDirective implements ControlValueAccessor {
 
   $instance: any;
   value;
+  initialized = false;
   onChange = (_: any) => {};
 
   constructor(
     private elementRef: ElementRef,
     private zone: NgZone
   ) { }
-
-  ngAfterViewInit(): void {
-    this.initSelect();
-  }
 
   private initSelect(): void {
     this.zone.runOutsideAngular(() => {
@@ -35,10 +32,32 @@ export class BootstrapSelectDirective implements AfterViewInit, ControlValueAcce
 
       this.$instance.on('changed.bs.select', (event) => {
         this.zone.run(() => {
+          this.value = event.target.value;
           this.onChange(event.target.value);
         });
       });
+      this.zone.run(() => {
+        this.initialized = true;
+      });
     });
+  }
+
+  public updateView(item?: any) {
+    if (!this.initialized) {
+      this.initSelect();
+    }
+    setTimeout(() =>
+      this.zone.runOutsideAngular(() => {
+        if (this.value === item) {
+          this.zone.run(() => {
+            this.value = '';
+            this.onChange(this.value);
+          });
+        } else {
+          this.$instance.selectpicker('val', this.value);
+        }
+        this.$instance.selectpicker('refresh');
+      }));
   }
 
   registerOnChange(fn: any): void {
@@ -48,8 +67,7 @@ export class BootstrapSelectDirective implements AfterViewInit, ControlValueAcce
   registerOnTouched(fn: any): void {
   }
 
-  setDisabledState(isDisabled: boolean): void {
-  }
+  setDisabledState(isDisabled: boolean): void {}
 
   writeValue(value: any): void {
     this.value = value;

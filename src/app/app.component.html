@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center py-5">
-      <h1>jQuery components to Angular 6</h1>
+      <h1>{{ title }}</h1>
     </div>
   </div>
   <section>
@@ -16,17 +16,25 @@
   <section>
     <h2>Bootstrap select as a component</h2>
     <form [formGroup]="bootstrapSelectGroup">
-      <bootstrap-select formControlName="bootstrapSelect">
-        <option *ngFor="let option of options">{{ option }}</option>
-      </bootstrap-select>
+      <bootstrap-select formControlName="bootstrapSelect" [options]="options"></bootstrap-select>
     </form>
   </section>
   <hr>
   <section>
     <h2>Bootstrap select as a directive</h2>
-    <select class="selectpicker" bootstrapSelect [(ngModel)]="bootstrapSelectDirectiveModel">
-      <option *ngFor="let option of options">{{ option }}</option>
+    <select class="selectpicker d-block" bootstrapSelect [(ngModel)]="bootstrapSelectDirectiveModel">
+      <option *ngFor="let option of directiveOptions" bootstrap-select-item>{{ option }}</option>
     </select>
+    <pre class="my-3">Selected option: <b>{{ bootstrapSelectDirectiveModel }}</b></pre>
+    <div class="my-3">
+      <button class="btn btn-primary mr-2" (click)="addSelectItem()">
+        Add option
+      </button>
+      <button class="btn btn-danger" (click)="removeSelectItem()">
+        Remove option
+      </button>
+    </div>
+
   </section>
   <hr>
 </div>

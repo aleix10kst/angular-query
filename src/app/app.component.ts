@@ -6,13 +6,24 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnChanges {
-  title = 'app';
-  normalSelect;
+export class AppComponent implements OnInit {
+  title = 'Wrappers for jQuery plugins';
   bootstrapSelectGroup: FormGroup;
   bootstrapSelectDirectiveModel = 'Ketchup';
 
   options = [
+    {
+      title: 'Mustard', value: 'Mustard'
+    },
+    {
+      title: 'Ketchup', value: 'Ketchup'
+    },
+    {
+      title: 'Barbecue', value: 'Barbecue'
+    }
+  ];
+
+  directiveOptions = [
     'Mustard',
     'Ketchup',
     'Barbecue'
@@ -49,9 +60,12 @@ export class AppComponent implements OnInit, OnChanges {
     this.slides.length = this.slides.length - 1;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+  addSelectItem() {
+    this.directiveOptions.push('Mayonnaise');
   }
 
+  removeSelectItem() {
+    this.directiveOptions.splice(0, 1);
+  }
 
 }

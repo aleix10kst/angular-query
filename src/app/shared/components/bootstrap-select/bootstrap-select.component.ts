@@ -18,6 +18,8 @@ declare const jQuery: any;
 export class BootstrapSelectComponent implements AfterViewInit, ControlValueAccessor {
 
   @ViewChild('selectpicker') elementRef;
+
+  @Input() options;
   $instance;
   value;
   initialized = false;
