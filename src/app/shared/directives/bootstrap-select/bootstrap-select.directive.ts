@@ -36,10 +36,8 @@ export class BootstrapSelectDirective implements ControlValueAccessor {
           this.onChange(event.target.value);
         });
       });
-      this.zone.run(() => {
-        this.initialized = true;
-      });
     });
+    this.initialized = true;
   }
 
   public updateView(item?: any) {
