@@ -1,5 +1,8 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { SlickCarouselConfig } from './shared/models/slick-carousel/slick-carousel.config';
+
+declare const jQuery: any;
 
 @Component({
   selector: 'app-root',
@@ -29,15 +32,28 @@ export class AppComponent implements OnInit {
     'Barbecue'
   ];
 
-  configuration = {
+  configuration: SlickCarouselConfig = {
+    arrows: true,
+    dots: false,
+    draggable: false,
+    autoplay: false,
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    appendArrows: jQuery('.selector-controls'),
+    prevArrow: '<button type="button" class="slick-prev"><span class="icon icon-chevron-left"></span></button>',
+    nextArrow: '<button type="button" class="slick-next"><span class="icon icon-chevron-right"></span></button>',
   };
 
   slides = [
     {img: 'http://placehold.it/350x150/000000'},
     {img: 'http://placehold.it/350x150/111111'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/333333'},
+    {img: 'http://placehold.it/350x150/333333'},
     {img: 'http://placehold.it/350x150/333333'},
     {img: 'http://placehold.it/350x150/666666'}
   ];

@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import {SlickCarouselItemDirective} from '../../directives/slick-carousel/slick-carousel-item.directive';
 import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import { SlickCarouselConfig } from '../../models/slick-carousel/slick-carousel.config';
 declare const jQuery: any;
 
 @Component({
@@ -22,7 +23,7 @@ declare const jQuery: any;
 })
 export class SlickCarouselComponent implements AfterViewInit, OnDestroy  {
 
-  @Input() config;
+  @Input() config: SlickCarouselConfig;
 
   public slides: any = [];
   public $instance: any;
